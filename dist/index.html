@@ -12,10 +12,15 @@
         <div id="city-container"></div>
     </div>
     <script id="weather-template" type="text/x-handlebars-template">
-            {{#each data}}
-                <h4>{{name}}</h4>
-                <p>Temperature: {{temperature}}</p>
+            {{#each this}}
+                <h4>{{this.name}}</h4>
+                <p>Temperature: {{this.temperature}} degrees</p>
             {{/each}}
     </script>
+    <script src="/handlebars/dist/handlebars.js"></script>
+    <script src="/jquery/dist/jquery.js"></script>
+    <script src="logic.js"></script>
+    <script src="view.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
