@@ -9,13 +9,15 @@ class APIManager {
     }
 
     async getDataFromDB() {
-        const city = await $.get(`./city`)
-        //what should i do with this db data?
+        const city = await $.get(`./cities`)
+        console.log(city);
+        city.forEach(c => this.cityData.push(c));
     }
 
-    async saveCity(cityName) {
-        const city = await $.post(`./city/${cityName}`)
-        this.cityData.push(city)
+    async saveCity(city) {
+        this.cityData = this.cityData.filter(c => c.name !== city.name)
+        const cityDoc = await $.post(`./city`, city)
+        this.cityData.push(cityDoc)
     }
 
     async removeCity(cityName) {
@@ -23,7 +25,7 @@ class APIManager {
             method: "DELETE",
             url: (`./city/${cityName}`)
         })
-        this.cityData = this.cityData.filter(c => c.name === cityName)
+        this.cityData = this.cityData.filter(c => c.name !== cityName)
     }
 
 }

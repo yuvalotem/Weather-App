@@ -2,10 +2,9 @@ class Render {
     constructor(){}
 
     renderData(data){
-        console.log(data);
         const source = $('#weather-template').html()
         const template = Handlebars.compile(source)
-        const newHTML = template(data[0])
+        const newHTML = template(data)
         $('#city-container').empty().append(newHTML)
     }
 }

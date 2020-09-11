@@ -13,8 +13,21 @@
     </div>
     <script id="weather-template" type="text/x-handlebars-template">
             {{#each this}}
-                <h4>{{this.name}}</h4>
-                <p>Temperature: {{this.temperature}} degrees</p>
+                <div>
+                    {{#if this._id}}
+                    <p class="remove-city">-</p>
+                    {{else}}
+                    <p class="add-city">+</p>
+                    {{/if}}
+                    <p>
+                        <span>{{this.temperature}}</span>
+                        <span class="city-name">{{this.name}}</span>
+                    </p>
+                    <p>
+                    <span>{{this.condition}}</span>
+                    <span><img src='http://openweathermap.org/img/wn/{{this.conditionPic}}.png'></span>
+                    </p>
+                </div>               
             {{/each}}
     </script>
     <script src="/handlebars/dist/handlebars.js"></script>
