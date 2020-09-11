@@ -3,29 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <title>Weather App</title>
 </head>
 <body>
-    <div>
-        <input id="city-input" placeholder="Enter city name">
-        <button id="search-button">Click</button>
+    <div id="container">
+        <p id="input-bar">
+        <input id="city-input" placeholder="City">
+        <button id="search-button"><i class="fas fa-search"></i></button>
+        </p>
         <div id="city-container"></div>
     </div>
     <script id="weather-template" type="text/x-handlebars-template">
             {{#each this}}
-                <div>
+                <div class="city">
                     {{#if this._id}}
-                    <p class="remove-city">-</p>
+                    <p class="remove-city"><i class="fas fa-minus-circle"></i></p>
                     {{else}}
-                    <p class="add-city">+</p>
+                    <p class="add-city"><i class="fas fa-plus-circle"></i></p>
                     {{/if}}
                     <p>
-                        <span>{{this.temperature}}</span>
-                        <span class="city-name">{{this.name}}</span>
+                    <span class='city-temp'>{{this.temperature}}</span><br/>
+                    <span class="city-name">{{this.name}}</span>
                     </p>
                     <p>
-                    <span>{{this.condition}}</span>
-                    <span><img src='http://openweathermap.org/img/wn/{{this.conditionPic}}.png'></span>
+                    <span class='city-condition'>{{this.condition}}</span><br/>
+                    <span class='city-img'><img src='http://openweathermap.org/img/wn/{{this.conditionPic}}.png'></span>
                     </p>
                 </div>               
             {{/each}}

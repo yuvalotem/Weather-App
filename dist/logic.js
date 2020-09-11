@@ -10,7 +10,6 @@ class APIManager {
 
     async getDataFromDB() {
         const city = await $.get(`./cities`)
-        console.log(city);
         city.forEach(c => this.cityData.push(c));
     }
 
@@ -25,7 +24,11 @@ class APIManager {
             method: "DELETE",
             url: (`./city/${cityName}`)
         })
-        this.cityData = this.cityData.filter(c => c.name !== cityName)
+        this.cityData.forEach(c => {
+            if(c.name === cityName){
+                delete c._id
+            }
+        })
     }
 
 }

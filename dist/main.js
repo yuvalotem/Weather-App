@@ -15,6 +15,7 @@ const handleSearch = async function(cityName){
 $('#search-button').on('click', function(){
     const cityName = $('#city-input').val()
     handleSearch(cityName)
+    $('#city-input').val('')
 })
 
 $('#city-container').on('click', '.add-city', async function(){

@@ -1,0 +1,31 @@
+#container{
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+}
+
+#input-bar{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+.city{
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+}
+/* .city-temp{
+    grid-area: t;
+}
+.city-name{
+    grid-area: n;
+}
+.city-condition{
+    grid-area: c;
+}
+.city-img{
+    grid-area: i;
+}
+.add-city{
+    grid-area: b;
+} */
+/* .remove-city{
+    grid-area: b;
+} */
