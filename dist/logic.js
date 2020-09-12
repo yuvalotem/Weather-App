@@ -14,9 +14,9 @@ class APIManager {
     }
 
     async saveCity(city) {
-        this.cityData = this.cityData.filter(c => c.name !== city.name)
         const cityDoc = await $.post(`./city`, city)
-        this.cityData.push(cityDoc)
+        const index = this.cityData.findIndex((c => c.name === city.name));
+        this.cityData[index] = cityDoc
     }
 
     async removeCity(cityName) {
@@ -29,6 +29,15 @@ class APIManager {
                 delete c._id
             }
         })
+    }
+
+    async updateCity(cityName) {
+        const cityDoc = await $.ajax({
+            method: "PUT",
+            url: `./city/${cityName}`
+        })
+        const index = this.cityData.findIndex((c => c.name === cityName));
+        this.cityData[index] = cityDoc
     }
 
 }

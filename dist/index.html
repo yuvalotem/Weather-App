@@ -12,7 +12,7 @@
     <div id="container">
         <p id="input-bar">
         <input id="city-input" placeholder="City">
-        <button id="search-button"><i class="fas fa-search"></i></button>
+        <span id="search-button"><i class="fas fa-search"></i></span>
         </p>
         <div id="city-container"></div>
     </div>
@@ -20,16 +20,16 @@
             {{#each this}}
                 <div class="city">
                     {{#if this._id}}
-                    <p class="remove-city"><i class="fas fa-minus-circle"></i></p>
+                    <div><p class="remove-city"><i class="fas fa-minus-circle"></i></p><span class="update-city"><i class="fas fa-sync"></i></span></div>
                     {{else}}
                     <p class="add-city"><i class="fas fa-plus-circle"></i></p>
                     {{/if}}
                     <p>
-                    <span class='city-temp'>{{this.temperature}}</span><br/>
+                    <span class='city-temp'>{{this.temperature}}°</span><br/><br/>
                     <span class="city-name">{{this.name}}</span>
                     </p>
                     <p>
-                    <span class='city-condition'>{{this.condition}}</span><br/>
+                    <span class='city-condition'>{{this.condition}}</span><br/><br/>
                     <span class='city-img'><img src='http://openweathermap.org/img/wn/{{this.conditionPic}}.png'></span>
                     </p>
                 </div>               
