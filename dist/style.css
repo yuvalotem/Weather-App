@@ -38,10 +38,13 @@
 }
 .city{
     background-color: #34ace0;
-    border-bottom: 2px #dfe4ea solid;
+    border-bottom: 1px #dfe4ea solid;
     display: grid;
     grid-template-columns: 1fr 2fr 2fr;
     align-items: center;
     justify-items: center;
+}
+.time{
+    background-color: #34ace0;
 }
 

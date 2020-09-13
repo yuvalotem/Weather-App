@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <title>Weather App</title>
 </head>
+
 <body>
     <div id="container">
         <p id="input-bar">
-        <input id="city-input" placeholder="City">
-        <span id="search-button"><i class="fas fa-search"></i></span>
+            <input id="city-input" placeholder="City">
+            <span id="search-button"><i class="fas fa-search"></i></span>
         </p>
         <div id="city-container"></div>
     </div>
     <script id="weather-template" type="text/x-handlebars-template">
             {{#each this}}
+                <div class="time">{{this.updatedAt}}</div>
                 <div class="city">
                     {{#if this._id}}
                     <div><p class="remove-city"><i class="fas fa-minus-circle"></i></p><span class="update-city"><i class="fas fa-sync"></i></span></div>
@@ -26,7 +29,7 @@
                     {{/if}}
                     <p>
                     <span class='city-temp'>{{this.temperature}}°</span><br/><br/>
-                    <span class="city-name">{{this.name}}</span>
+                    <span class="city-name">{{this.name}}</span><br/>
                     </p>
                     <p>
                     <span class='city-condition'>{{this.condition}}</span><br/><br/>
@@ -35,10 +38,12 @@
                 </div>               
             {{/each}}
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="/handlebars/dist/handlebars.js"></script>
     <script src="/jquery/dist/jquery.js"></script>
     <script src="logic.js"></script>
     <script src="view.js"></script>
     <script src="main.js"></script>
 </body>
+
 </html>
